@@ -37,7 +37,7 @@ const ejs = require('ejs')
 				});
 			});
 
-			app.get('/settings',function(req,res){
+			app.get('/signup',function(req,res){
 				loginCheckRouteHook(()=>{
 					res.render('referenceViewPagesForSoronto/signup.html',{});
 				});

@@ -122,6 +122,7 @@
   padding: 12px 10% 16px;
   cursor: pointer;
   background-color: var(--white);
+  max-width: 280;
 }
 .chat-container .left .people .person:after {
   position: absolute;
