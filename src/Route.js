@@ -1,10 +1,44 @@
+const ejs = require('ejs')
+
 ;(function(){
 	module.exports=function(_g){
-		
+
 		var app = _g.app;
 		var http = _g.http;
 
 		function route(){
+			app.get('/',function(req,res){
+				res.render('index.html',{});
+			});
+
+			app.get('/Discover',function(req,res){
+				res.render('referenceViewPagesForSoronto/Discover.html',{});
+			});
+
+			app.get('/add-product',function(req,res){
+				res.render('referenceViewPagesForSoronto/add-product.html',{});
+			});
+
+			app.get('/',function(req,res){
+				res.render('index.html',{});
+			});
+
+			app.get('/',function(req,res){
+				res.render('index.html',{});
+			});
+
+			app.get('/',function(req,res){
+				res.render('index.html',{});
+			});
+
+			app.get('/',function(req,res){
+				res.render('index.html',{});
+			});
+
+			app.get('/',function(req,res){
+				res.render('index.html',{});
+			});
+
 			app.get('/',function(req,res){
 				res.render('index.html',{});
 			});

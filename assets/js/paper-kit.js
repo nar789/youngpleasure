@@ -140,7 +140,8 @@ $(document).ready(function() {
 
   // Change the collor of navbar collapse
   $('#navbarToggler').on('show.bs.collapse', function() {
-    if ($('nav').hasClass('navbar-transparent') && $(document).scrollTop() < 50) {
+    console.log(window.location.href.split('/')[3] === '')
+    if ($('nav').hasClass('navbar-transparent') && $(document).scrollTop() < 50 && window.location.href.split('/')[3] === '') {
       $('.navbar').addClass('no-transition');
       $('nav').removeClass('navbar-transparent');
     }
@@ -777,6 +778,12 @@ function hasScrolled() {
     if (st + $(window).height() < $(document).height()) {
       $('.navbar.nav-up').removeClass('nav-up').addClass('nav-down');
     }
+  }
+
+  if (lastScrollTop > 700 && window.location.href === 'http://localhost:1221/') {
+    $('.navbar').addClass('upperNav');
+  } else {
+    $('.navbar').removeClass('upperNav');
   }
 
   lastScrollTop = st;

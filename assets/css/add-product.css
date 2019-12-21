@@ -1,0 +1,42 @@
+.star {
+  display: inline-block;
+}
+
+.navbar-transparent {
+  background-color: #f7765f !important;
+}
+
+/* footer */
+.footer-notify {
+  line-height: 20px;
+  font-size: 12px !important;
+  color: #6364d8;
+  margin-top:10px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-basis {
+  flex-basis: 300px;
+  color: #666;
+  position: relative;
+  border-top: 1px solid #979797;
+  border-bottom: 1px solid #e6e6e6;
+  margin-top: 45px;
+  font-size: 13px;
+  background-color: white;
+  box-sizing: border-box;
+  word-break: break-all;
+  line-height: 20px;
+}
+
+.flex-other {
+  flex: 1 1 0%;
+  justify-content: flex-end;
+}
