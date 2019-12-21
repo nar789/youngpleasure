@@ -13,7 +13,7 @@
 		}
 
 		function loadNodeModules() {
-			_g=new global();//static global 
+			_g=new global();//static global
 			_g.express = require('express');
 			_g.app = require('express')();
 			_g.bodyParser = require('body-parser');

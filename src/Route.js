@@ -8,39 +8,45 @@ const ejs = require('ejs')
 
 		function route(){
 			app.get('/',function(req,res){
-				res.render('index.html',{});
+				loginCheckRouteHook(()=>{
+					res.render('index.html',{});
+				});
 			});
 
 			app.get('/Discover',function(req,res){
-				res.render('referenceViewPagesForSoronto/Discover.html',{});
+				loginCheckRouteHook(()=>{
+					res.render('referenceViewPagesForSoronto/Discover.html',{});
+				});
 			});
 
 			app.get('/add-product',function(req,res){
-				res.render('referenceViewPagesForSoronto/add-product.html',{});
+				loginCheckRouteHook(()=>{
+					res.render('referenceViewPagesForSoronto/add-product.html',{});
+				});
 			});
 
 			app.get('/404',function(req,res){
-				res.render('referenceViewPagesForSoronto/404.html',{});
+				loginCheckRouteHook(()=>{
+					res.render('referenceViewPagesForSoronto/404.html',{});
+				});
 			});
 
 			app.get('/login-page',function(req,res){
-				res.render('referenceViewPagesForSoronto/login-page.html',{});
+				loginCheckRouteHook(()=>{
+					res.render('referenceViewPagesForSoronto/login-page.html',{});
+				});
 			});
 
 			app.get('/settings',function(req,res){
-				res.render('referenceViewPagesForSoronto/settings.html',{});
+				loginCheckRouteHook(()=>{
+					res.render('referenceViewPagesForSoronto/signup.html',{});
+				});
 			});
 
-			app.get('/',function(req,res){
-				res.render('index.html',{});
-			});
-
-			app.get('/',function(req,res){
-				res.render('index.html',{});
-			});
-
-			app.get('/',function(req,res){
-				res.render('index.html',{});
+			app.get('/chatting-room',function(req,res){
+				loginCheckRouteHook(()=>{
+					res.render('referenceViewPagesForSoronto/chatting-room.html',{});
+				});
 			});
 
 			//1. enetry point
@@ -48,6 +54,31 @@ const ejs = require('ejs')
 			  preLoad();
 			  console.log('YoungPleasure! Server listen on *:1221');
 			});
+		}
+
+		function loginCheckRouteHook(doInLoginCheckRouteHook){
+			routeHook(()=>{
+				return {result:"success"};
+			},(params)=>{
+				if(params==undefined || params.result==undefined){
+					return;
+				}
+				if(params.result === "success"){
+					//to-do-something
+					doInLoginCheckRouteHook();
+				} else { //in case of not having session, or not login..etc..
+					//to-do
+				}
+				return {result:"success"};
+			},(params)=>{
+				return 1;
+			});
+		}
+
+		function routeHook(onPreExecute,doInRoute,onPostExecute){
+			var preReturn = onPreExecute();
+			var doReturn = doInRoute(preReturn);
+			return onPostExecute(doReturn);
 		}
 
 		function preLoad(){
