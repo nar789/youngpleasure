@@ -19,16 +19,16 @@ const ejs = require('ejs')
 				res.render('referenceViewPagesForSoronto/add-product.html',{});
 			});
 
-			app.get('/',function(req,res){
-				res.render('index.html',{});
+			app.get('/404',function(req,res){
+				res.render('referenceViewPagesForSoronto/404.html',{});
 			});
 
-			app.get('/',function(req,res){
-				res.render('index.html',{});
+			app.get('/login-page',function(req,res){
+				res.render('referenceViewPagesForSoronto/login-page.html',{});
 			});
 
-			app.get('/',function(req,res){
-				res.render('index.html',{});
+			app.get('/settings',function(req,res){
+				res.render('referenceViewPagesForSoronto/settings.html',{});
 			});
 
 			app.get('/',function(req,res){
